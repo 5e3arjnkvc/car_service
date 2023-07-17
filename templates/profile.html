@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block navigation %}
+         <!-- header inner -->
+         <div class="header">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                     <div class="full">
+                        <div class="center-desk">
+                           <div class="logo">
+                              <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="#" /></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                           <ul class="navbar-nav mr-auto">
+                                 <a class="nav-link" href="/"> Home  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <li class="nav-item active">
+                                 <a class="nav-link" href="/about/">About</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="/service/">Services</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="/customers/">Our Customers</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="/contact/">Contact Us</a>
+                              </li>
+                              <li class="nav-item d_none">
+                                 <a class="nav-link" href="/profile/">Profile </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      {% endblock %}
+
+{%block registration %}
+<div class="container">
+  <div class="col">
+    <div class="row">
+      <div class="col mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="e-profile">
+              <div class="row">
+                <div class="col-12 col-sm-auto mb-3">
+                  <div class="mx-auto" style="width: 140px;">
+                    <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+                      <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                  <div class="text-center text-sm-left mb-2 mb-sm-0">
+                    <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{ user['name'] }}</h4>
+                      <div class="text-muted"><small>Last seen: Online </small></div>
+                      <div class="mt-2">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fa fa-fw fa-camera"></i>
+                        <span>Change Photo</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="text-center text-sm-right">
+                    <span class="badge badge-secondary">Administrator</span>
+                    <div class="text-muted"><small>Joined 09 Jan 2023</small></div>
+                  </div>
+                </div>
+              </div>
+              <ul class="nav nav-tabs">
+                <li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
+              </ul>
+              <div class="tab-content pt-3">
+                <div class="tab-pane active">
+                  <form class="form" action="/profile/edit" method="POST" novalidate>
+                    <div class="row">
+                      <div class="col">
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Full Name</label>
+                                <input class="form-control" type="text" name="name" placeholder="John Smith" value="{{ user.get('name') }}" required>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Username</label>
+                                <input class="form-control" type="text" name="username" placeholder="johnny.s" value="{{ user.get('username')}}" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Email</label>
+                              <input class="form-control" type="text" name="email" placeholder="user@example.com" value="{{ user.get('email')}}" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col mb-3">
+                            <div class="form-group">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-sm-6 mb-3">
+                        <div class="mb-2"><b>Change Password</b></div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Current Password</label>
+                                <input class="form-control" type="text" name="email" placeholder="Password" value="{{ user.get('password')}}" required>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+      </div>
+
+      <div class="col-12 col-md-3 mb-3">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="px-xl-3">
+             <button class="btn btn-block btn-secondary" onclick="location.href='/logout'">
+                 <i class="fa fa-sign-out"></i>
+                 <span>Logout</span>
+             </button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block about %}
+{% endblock %}
+
+{% block services %}
+{% endblock %}
+
+{% block testemonial %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

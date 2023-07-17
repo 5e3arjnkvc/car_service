@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block navigation %}
+         <!-- header inner -->
+         <div class="header">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                     <div class="full">
+                        <div class="center-desk">
+                           <div class="logo">
+                              <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="#" /></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                           <ul class="navbar-nav mr-auto">
+                                 <a class="nav-link" href="/"> Home  </a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="/about/">About</a>
+                              </li>
+                              <li class="nav-item">
+                               <a class="nav-link" href="/service/">Services</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="/customers/">Our Customers</a>
+                              </li>
+                              <li class="nav-item">
+                               <li class="nav-item active">
+                                 <a class="nav-link" href="/contact/">Contact Us</a>
+                              </li>
+                              <li class="nav-item d_none">
+                                 <a class="nav-link" href="/login/"> Login/Register </a>
+                              </li>
+                              <li class="nav-item d_none">
+                                 <a class="nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                              </li>
+                           </ul>
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+{% endblock %}
+
+{% block content %}
+    <title>Appointments</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Appointments</h1>
+        <form action="/contact/" method="POST">
+    <div class="form-group">
+        <label for="customer_id">Customer ID:</label>
+        <input type="text" id="customer_id" name="customer_id" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="vehicle_id">Vehicle ID:</label>
+        <input type="text" id="vehicle_id" name="vehicle_id" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="service_id">Service ID:</label>
+        <input type="text" id="service_id" name="service_id" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="appointment_date">Appointment Date:</label>
+        <input type="date" id="appointment_date" name="appointment_date" class="form-control">
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary">
+</form>
+       <table>
+    <tr>
+        <th>Appointment ID</th>
+        <th>Customer ID</th>
+        <th>Vehicle Name</th>
+        <th>Service ID</th>
+        <th>Appointment Date</th>
+    </tr>
+    {% for appointment in appointments %}
+    <tr>
+        <td>{{ appointment[0] }}</td>
+        <td>{{ appointment[1] }}</td>
+        {% for customer in customers %}
+        {% if customer[0] == appointment[1] %}
+        <td>{{ customer[1] }} {{ customer[2] }}</td>
+        {% endif %}
+        {% endfor %}
+        <td>{{ appointment[2] }}</td>
+        <td>{{ appointment[3] }}</td>
+        <td>{{ appointment[4] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}
+
+{% block about %}
+{% endblock %}
+
+{% block services %}
+{% endblock %}
+
+{% block testemonial %}
+{% endblock %}
+
+
