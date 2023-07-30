@@ -1,4 +1,4 @@
-mysql_host: 'localhost'
-mysql_user: 'root'
-mysql_password: 'petar'
+mysql_host: '******'
+mysql_user: '******'
+mysql_password: '******'
 mysql_db: 'car_service_db'
