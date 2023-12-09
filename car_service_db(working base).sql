@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: car_service_db
+-- Host:    Database: car_service_db
 -- ------------------------------------------------------
 -- Server version	8.0.33
 
