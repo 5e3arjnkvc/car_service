@@ -38,3 +38,24 @@ Follow these steps to run the Social Media Flask App locally:
 - **Windows:
 - ''shel
 - set FLASK_APP=app.py
+
+
+5. <h1>Screnshots</h1>
+   <h2>Home Page</h2>
+   <img src="screnshot/Home_Page.png">
+
+   <h2>About Us</h2>
+   <img src="screnshot/About.png">
+
+   <h2>Services</h2>
+   <img src="srcenshot/Services.png">
+
+   <h2>Customers</h2>
+   <img src="screnshot/Cusomers.png">
+
+   <h2>Contac Us</h2>
+   <img src="screnshot/Contac_Us.png">
+
+   <h2>Login/Register</h2>
+   <img src="screnshot/Login_Users.png">
+   
