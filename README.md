@@ -48,7 +48,7 @@ Follow these steps to run the Social Media Flask App locally:
    <img src="screnshot/About.png">
 
    <h2>Services</h2>
-   <img src="srcenshot/Services.png">
+   <img src="screnshot/Services.png">
 
    <h2>Customers</h2>
    <img src="screnshot/Customers.png">
